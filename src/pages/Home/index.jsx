@@ -6,34 +6,30 @@ import './style.css'
 
 export const Home = () => {
 
-    const [scale, setScale] = useState(1);
-    const [angle, setAngle] = useState(0);
 
     useEffect(() => {
-        let imagem = document.getElementById('imagem');
 
         function rotate() {
-            imagem.style.transform = `rotate(${angle})deg)`
+            let imagem = document.getElementById('imagem');
+
+            angle += 720;
+
+            imagem.style.transform = 'rotate(' + angle + 'deg) scale(0.1)'
+            console.log("Passou - " + angle)
+            setTimeout(() => {
+                angle += 720;
+                imagem.style.transform = 'rotate(' + angle + 'deg) scale(1)'
+
+            }, 600)
         }
 
-        function reduzImagem() {
-            imagem.style.transform = `scale(${scale})}`
-        }
+        let imagem = document.getElementById('imagem');
+        // let angle = 0
+        let angle = imagem.getAttribute('angle')
 
-        function aumentaImagem() {
-            imagem.style.transform = `scale(${scale})}`
-        }
-
-        imagem.addEventListener('click', () => {
-            setAngle(720)
-            setScale(1)
-
-            rotate()
-            reduzImagem()
-            aumentaImagem()
-        })
-
-    }, [])
+        imagem.addEventListener('click', () => { rotate() })
+        rotate()
+    });
 
     return (
         <>
