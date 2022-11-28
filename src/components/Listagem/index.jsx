@@ -35,6 +35,10 @@ export const Listagem = () => {
 
 
         document.getElementById('foto').setAttribute('src', personagens[0]["image"])
+
+        document.getElementById('carregando').setAttribute('hidden', true)
+        document.getElementById('pos').removeAttribute('hidden')
+
         }
 
         requisiscao()
@@ -47,8 +51,6 @@ export const Listagem = () => {
 
         personagemClicado = personagens.filter((person) => (person.id + ' - ' + person.name === value))
 
-        console.log(personagemClicado[0])
-
         document.getElementById('nome').innerHTML = "Nome: " + personagemClicado[0]['name']
         document.getElementById('status').innerHTML = "Status: " + personagemClicado[0]['status']
         document.getElementById('especie').innerHTML = "Espécie: " + personagemClicado[0]['species']
@@ -57,6 +59,9 @@ export const Listagem = () => {
 
 
         document.getElementById('foto').setAttribute('src', personagemClicado[0]["image"])
+
+        document.getElementById('carregando').setAttribute('hidden', true)
+        document.getElementById('pos').removeAttribute('hidden')
     }
 
 
@@ -78,8 +83,11 @@ export const Listagem = () => {
 
                 </select>
             </div>
-
-            <div>
+            
+            <div id='carregando' style={{textAlign: 'center', paddingTop: '50px'}}>
+                    <h2>Carregando...</h2><div className="lds-hourglass"></div>
+            </div>
+            <div id='pos' hidden>
                 <div id='detalhes'>
                     <h6 id='nome'></h6>
                     <h6 id='status'></h6>
@@ -90,7 +98,7 @@ export const Listagem = () => {
                 </div>
 
                 <br />
-                <img id='foto' src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="" />
+                <img id='foto' src="" alt="" />
             </div>
         </>
     )

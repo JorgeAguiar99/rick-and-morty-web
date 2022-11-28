@@ -15,7 +15,6 @@ export const Home = () => {
             angle += 720;
 
             imagem.style.transform = 'rotate(' + angle + 'deg) scale(0.1)'
-            console.log("Passou - " + angle)
             setTimeout(() => {
                 angle += 720;
                 imagem.style.transform = 'rotate(' + angle + 'deg) scale(1)'
