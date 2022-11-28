@@ -1,0 +1,15 @@
+.navbar-nav .nav-link {
+    color: whitesmoke;
+    opacity: 0.4;
+}
+
+.active {
+    color: whitesmoke !important;
+    font-weight: 900 !important;
+    opacity: 1 !important;
+}
+
+.nav-link:hover {
+    opacity: 1 !important;
+    color: white !important;
+}
